@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diamondsect | Meu carrinho</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="cart-page">
+
+  <div class="topbar" role="region" aria-label="Avisos">
+    <div class="topbar__track">
+      <span>FRETE GRÁTIS | GARANTIA DE 30 DIAS</span>
+      <span>CUPOM DE PRIMEIRA COMPRA</span>
+      <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
+      <span>COMPRA SEGURA</span>
+      <span>FRETE GRÁTIS | GARANTIA DE 30 DIAS</span>
+      <span>CUPOM DE PRIMEIRA COMPRA</span>
+      <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
+      <span>COMPRA SEGURA</span>
+    </div>
+  </div>
+
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__left"></div>
+      <a class="brand" href="index.html">DIAMONDSECT</a>
+
+      <div class="header__right">
+        <form class="search search--inline" action="#" onsubmit="event.preventDefault();">
+          <span class="search__icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="O que você está buscando?" autocomplete="off" />
+          <button class="search__btn" type="button" title="Pesquisar">Buscar</button>
+        </form>
+
+        <a class="cartbtn cartbtn--premium" href="carrinho.html" aria-label="Meu carrinho">
+          <span class="cartbtn__label">Meu carrinho</span>
+          <span class="cartcount">0</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="" href="index.html">Início</a>
+      <a class="" href="ternos.html">Ternos</a>
+      <a class="" href="perfumaria.html">Perfumaria</a>
+      <a class="" href="joias.html">Joias</a>
+      <a href="#suporte">Suporte</a>
+      <a href="#rastrear">Rastrear pedido</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+
+  <main class="cart-page">
+    <div class="cart-top">
+      <h1>Meu carrinho</h1>
+      <a href="index.html">Continuar comprando</a>
+    </div>
+
+    <section class="cart-layout">
+      <div class="panel">
+        <div id="cartList" class="cart-list"></div>
+
+        <div class="divider"></div>
+
+        <div class="reco-title">Você também pode gostar</div>
+        <div id="recoGrid" class="reco-grid"></div>
+      </div>
+
+      <aside class="panel summary">
+        <h2>Resumo</h2>
+
+        <div class="row"><span>Itens</span><span id="itemsCount">0</span></div>
+        <div class="row"><span>Subtotal</span><span id="subTotal">R$ 0,00</span></div>
+        <div class="row"><span>Desconto</span><span id="discountVal">R$ 0,00</span></div>
+        <div class="row"><span>Frete</span><span id="shippingVal">R$ 0,00</span></div>
+
+        <div class="divider"></div>
+
+        <div class="row"><span>Total</span><span class="total" id="cartTotal">R$ 0,00</span></div>
+
+        <div class="divider"></div>
+
+        <div class="small" style="margin-bottom:8px;">Cupom</div>
+        <div class="field" style="margin-bottom:12px;">
+          <input id="couponInput" type="text" placeholder="Ex: DIAMOND10" />
+          <button id="applyCouponBtn" type="button">Aplicar</button>
+        </div>
+
+        <div class="small" style="margin-bottom:8px;">Calcular frete (CEP)</div>
+        <div class="field" style="margin-bottom:12px;">
+          <input id="cepInput" inputmode="numeric" placeholder="Ex: 45600-000" />
+          <button id="calcShipBtn" type="button">Calcular</button>
+        </div>
+
+        <div id="statusPill" class="badge-ok" style="display:none;"></div>
+
+        <div style="height:12px;"></div>
+
+        <button class="btn" type="button" id="finishBtn">FINALIZAR COMPRA</button>
+
+        <div class="small" style="margin-top:10px;">
+          Pagamentos (em breve): Pix • Crédito • Débito<br/>
+          Frete e prazo serão calculados no checkout.
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="mobile-bar">
+    <div class="mb-row">
+      <div class="small">Total</div>
+      <div class="mb-total" id="mobileTotal">R$ 0,00</div>
+    </div>
+    <button class="btn mb-btn" id="mobileFinishBtn">FINALIZAR COMPRA</button>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/shop.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

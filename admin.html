@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diamondsect | Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <div class="topbar" role="region" aria-label="Avisos">
+    <div class="topbar__track">
+      <span>FRETE GRÁTIS | GARANTIA DE 30 DIAS</span>
+      <span>CUPOM DE PRIMEIRA COMPRA</span>
+      <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
+      <span>COMPRA SEGURA</span>
+      <span>FRETE GRÁTIS | GARANTIA DE 30 DIAS</span>
+      <span>CUPOM DE PRIMEIRA COMPRA</span>
+      <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
+      <span>COMPRA SEGURA</span>
+    </div>
+  </div>
+
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__left"></div>
+      <a class="brand" href="index.html">DIAMONDSECT</a>
+
+      <div class="header__right">
+        <form class="search search--inline" action="#" onsubmit="event.preventDefault();">
+          <span class="search__icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="O que você está buscando?" autocomplete="off" />
+          <button class="search__btn" type="button" title="Pesquisar">Buscar</button>
+        </form>
+
+        <a class="cartbtn cartbtn--premium" href="carrinho.html" aria-label="Meu carrinho">
+          <span class="cartbtn__label">Meu carrinho</span>
+          <span class="cartcount">0</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="" href="index.html">Início</a>
+      <a class="" href="ternos.html">Ternos</a>
+      <a class="" href="perfumaria.html">Perfumaria</a>
+      <a class="" href="joias.html">Joias</a>
+      <a href="#suporte">Suporte</a>
+      <a href="#rastrear">Rastrear pedido</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+
+  <main class="admin-page">
+    <div class="cart-top" style="margin-bottom:14px;">
+      <h1>Painel (cadastro de produtos)</h1>
+      <a href="index.html">Voltar para a loja</a>
+    </div>
+
+    <div class="admin-grid">
+      <section class="admin-card">
+        <h2>Cadastro</h2>
+        <p class="muted" style="margin-bottom:12px;">
+          Aqui você cadastra os produtos e eles aparecem automaticamente nas páginas:
+          <b>Ternos</b>, <b>Perfumaria</b>, <b>Joias</b> e também na Home.
+        </p>
+
+        <input id="pid" type="hidden" />
+
+        <div class="admin-row">
+          <div>
+            <label class="small">Nome</label>
+            <input id="pname" placeholder="Ex: Terno Imperial Black" />
+          </div>
+          <div>
+            <label class="small">Categoria</label>
+            <select id="pcat">
+              <option value="ternos">Ternos</option>
+              <option value="perfumaria">Perfumaria</option>
+              <option value="joias">Joias</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="small">Preço</label>
+            <input id="pprice" inputmode="decimal" placeholder="Ex: 1890" />
+          </div>
+          <div>
+            <label class="small">Preço “de” (opcional)</label>
+            <input id="pcompare" inputmode="decimal" placeholder="Ex: 2190" />
+          </div>
+
+          <div>
+            <label class="small">Badge</label>
+            <input id="pbadge" placeholder="Ex: Premium / Limited" value="Premium" />
+          </div>
+          <div>
+            <label class="small">Meta (texto curto)</label>
+            <input id="pmeta" placeholder="Ex: Corte italiano • Edição limitada" />
+          </div>
+
+          <div class="full">
+            <label class="small">Imagem (URL)</label>
+            <input id="pimage" placeholder="Cole a URL de imagem (Unsplash, etc.)" />
+          </div>
+
+          <div class="full">
+            <label class="small">Descrição (opcional)</label>
+            <textarea id="pdesc" placeholder="Descrição do produto (opcional)"></textarea>
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button class="btn btn--light" type="button" id="saveBtn">Cadastrar produto</button>
+          <button class="btn" type="button" id="clearBtn">Limpar</button>
+          <button class="btn" type="button" id="resetBtn">Zerar catálogo</button>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <h2>Produtos</h2>
+        <div class="tag" id="prodCount">0 produto(s) cadastrados</div>
+
+        <div style="height:12px;"></div>
+
+        <div style="overflow:auto; border:1px solid rgba(255,255,255,.10); border-radius:16px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Imagem</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="prodTbody"></tbody>
+          </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>Importar / Exportar</h2>
+        <p class="muted" style="margin-bottom:10px;">
+          Use isso pra salvar seu catálogo em um arquivo (JSON) e depois colar aqui de volta.
+        </p>
+
+        <textarea id="jsonArea" placeholder='Clique em "Exportar" para gerar o JSON aqui. Ou cole um JSON e clique em "Importar".'></textarea>
+
+        <div class="admin-actions">
+          <button class="btn btn--light" type="button" id="exportBtn">Exportar</button>
+          <button class="btn" type="button" id="importBtn">Importar</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+    <p class="muted">
+      Observação: este painel é <b>local</b> (usa localStorage). Em produção, depois dá pra trocar por banco de dados.
+    </p>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
