@@ -1,4 +1,5 @@
 import { moneyBRL, getCart, saveCart, updateCartCount, findProduct, getProducts } from "./store.js";
+import { toast } from "./ui.js";
 
 // ===== Cupom e frete (salvos no localStorage) =====
 const LS_COUPON = "diamondsect_coupon_v1";
@@ -362,7 +363,7 @@ function initActions(){
   }
 
   function finish(){
-    alert("Checkout será configurado depois (Pix/Cartão). Por enquanto: carrinho, cupom e frete já estão funcionando.");
+    toast("Checkout será configurado depois (Pix/Cartão). Por enquanto: carrinho, cupom e frete já estão funcionando.");
   }
 
   if(finishBtn) finishBtn.addEventListener("click", finish);

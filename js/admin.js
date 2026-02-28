@@ -10,6 +10,13 @@ function normalizeImages(str){
     .filter(Boolean);
 }
 
+function normalizeIds(str){
+  return String(str||"")
+    .split(",")
+    .map(s=>Number(String(s).trim()))
+    .filter(n=>Number.isFinite(n) && n > 0);
+}
+
 function render(){
   const tbody = qs("#admBody");
   const list = getProducts();
@@ -65,6 +72,8 @@ function fillForm(p){
   qs("#pstock").value = p.stock ?? 0;
   qs("#pimg").value = p.image ?? "";
   qs("#pimgs").value = (Array.isArray(p.images) ? p.images.join(", ") : "");
+  qs("#pvideo").value = p.video ?? "";
+  qs("#plook").value = (Array.isArray(p.lookIds) ? p.lookIds.join(", ") : "");
   qs("#pdesc").value = p.description ?? "";
   qs("#psold").value = p.soldScore ?? 0;
 }
@@ -78,6 +87,8 @@ function clearForm(){
   qs("#pstock").value = 0;
   qs("#pimg").value = "";
   qs("#pimgs").value = "";
+  qs("#pvideo").value = "";
+  qs("#plook").value = "";
   qs("#pdesc").value = "";
   qs("#psold").value = 0;
 }
@@ -94,6 +105,8 @@ function saveFromForm(){
     stock: Number(qs("#pstock").value || 0),
     image: qs("#pimg").value.trim(),
     images: normalizeImages(qs("#pimgs").value),
+    video: qs("#pvideo").value.trim(),
+    lookIds: normalizeIds(qs("#plook").value),
     description: qs("#pdesc").value.trim(),
     soldScore: Number(qs("#psold").value || 0),
   };
