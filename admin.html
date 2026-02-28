@@ -14,17 +14,25 @@
     @media(max-width:900px){.admgrid{grid-template-columns:1fr}}
     .help{color:rgba(255,255,255,.65);font-size:12.5px;line-height:1.5;margin-top:8px}
   </style>
+
+  <meta name="description" content="Diamondsect: experiência premium em moda e acessórios." />
+  <meta property="og:site_name" content="Diamondsect" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Diamondsect" />
+  <meta property="og:description" content="Diamondsect: experiência premium em moda e acessórios." />
+  <meta name="theme-color" content="#0b0b0b" />
+
 </head>
 
 <body>
 
   <div class="topbar" role="region" aria-label="Avisos">
     <div class="topbar__track">
-      <span>FRETE GRÁTIS | GARANTIA DE 30 DIAS</span>
+      <span>FRETE GRÁTIS PARA TODO O BRASIL | GARANTIA DE 30 DIAS</span>
       <span>CUPOM DE PRIMEIRA COMPRA</span>
       <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
       <span>COMPRA SEGURA</span>
-      <span>FRETE GRÁTIS | GARANTIA DE 30 DIAS</span>
+      <span>FRETE GRÁTIS PARA TODO O BRASIL | GARANTIA DE 30 DIAS</span>
       <span>CUPOM DE PRIMEIRA COMPRA</span>
       <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
       <span>COMPRA SEGURA</span>
@@ -149,6 +157,16 @@
         <div>
           <div class="small">Outras imagens (URLs separadas por vírgula)</div>
           <input class="fieldcol" style="width:100%" id="pimgs" placeholder="https://..., https://..., https://..." />
+        </div>
+
+        <div>
+          <div class="small">Vídeo do produto (URL — YouTube ou .mp4) <span class="muted">(opcional)</span></div>
+          <input class="fieldcol" style="width:100%" id="pvideo" placeholder="https://youtube.com/... ou https://.../video.mp4" />
+        </div>
+
+        <div>
+          <div class="small">Look completo (IDs de produtos, separados por vírgula) <span class="muted">(opcional)</span></div>
+          <input class="fieldcol" style="width:100%" id="plook" placeholder="Ex: 101, 205, 330" />
         </div>
 
         <div style="grid-column:1/-1">
