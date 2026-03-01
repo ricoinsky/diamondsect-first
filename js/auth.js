@@ -1,5 +1,20 @@
 import { getUsers, saveUsers, getSession, setSession, clearSession, mergeGuestCartIntoUser, updateCartCount } from "./store.js";
 
+// ================= ADMIN ACCESS (FRONT-END ONLY) =================
+// ⚠️ IMPORTANTE: isso é uma "trava" no front-end (cliente). Em hospedagem estática
+// não existe proteção 100% real sem camada de servidor (Cloudflare Access, Basic Auth, etc.).
+// Mesmo assim, isso bloqueia o uso do Admin para quem não estiver logado como você.
+//
+// ✅ Coloque AQUI o(s) seu(s) e-mails de admin (o mesmo que você usa para login no site):
+const ADMIN_EMAILS = [
+  "seuemail@exemplo.com" // <- troque pelo seu e-mail real
+];
+
+function isAdminEmail(email=""){
+  const e = String(email||"").trim().toLowerCase();
+  return ADMIN_EMAILS.map(x=>String(x||"").trim().toLowerCase()).includes(e);
+}
+
 function initials(name=""){
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if(!parts.length) return "DS";
@@ -27,6 +42,9 @@ function setAccountUI(){
   }
 
   updateCartCount();
+
+  // avisa o resto do site (ex: header) que a sessão mudou
+  window.dispatchEvent(new Event("ds:session-changed"));
 }
 
 function openModal(){
@@ -89,7 +107,7 @@ function onSubmit(){
     users.push({ email, pass, name, createdAt: Date.now() });
     saveUsers(users);
 
-    setSession({ email, name, ts: Date.now() });
+    setSession({ email, name, ts: Date.now(), isAdmin: isAdminEmail(email) });
     mergeGuestCartIntoUser();
     setAccountUI();
     closeModal();
@@ -100,7 +118,7 @@ function onSubmit(){
   const u = users.find(x => (x.email||"").toLowerCase() === email && x.pass === pass);
   if(!u) return toast("E-mail ou senha inválidos.");
 
-  setSession({ email: u.email, name: u.name, ts: Date.now() });
+  setSession({ email: u.email, name: u.name, ts: Date.now(), isAdmin: isAdminEmail(u.email) });
   mergeGuestCartIntoUser();
   setAccountUI();
   closeModal();

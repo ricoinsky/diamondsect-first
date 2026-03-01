@@ -1,4 +1,4 @@
-import { getProducts, saveProducts } from "./store.js";
+import { getProducts, saveProducts, getSession } from "./store.js";
 
 function qs(sel){ return document.querySelector(sel); }
 function esc(s){ return String(s||"").replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m])); }
@@ -133,6 +133,23 @@ function wipeAll(){
 }
 
 export function initAdmin(){
+  // --------- Proteção do Admin (front-end) ---------
+  const s = getSession();
+  if(!s?.email){
+    alert("Área restrita. Faça login com sua conta admin.");
+    // abre modal de login (se existir na página)
+    document.querySelector("[data-account-btn]")?.click();
+    // trava a tela
+    document.querySelector("main")?.setAttribute("style", "filter: blur(6px); pointer-events:none; user-select:none;");
+    return;
+  }
+
+  if(!s?.isAdmin){
+    alert("Sua conta não tem permissão para acessar o Admin.");
+    window.location.href = "index.html";
+    return;
+  }
+
   qs("#saveBtn")?.addEventListener("click", saveFromForm);
   qs("#clearBtn")?.addEventListener("click", clearForm);
   qs("#wipeBtn")?.addEventListener("click", wipeAll);

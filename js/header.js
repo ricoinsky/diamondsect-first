@@ -1,18 +1,17 @@
+import { getSession } from "./store.js";
+
 function revealAdmin(){
   const link = document.querySelector(".admin-link");
   if(!link) return;
 
-  const u = new URL(location.href);
-  const qp = u.searchParams.get("admin");
-  if(qp === "1"){
-    localStorage.setItem("ds_admin_mode","1");
-  }
-  const ok = localStorage.getItem("ds_admin_mode") === "1";
-  if(ok) link.style.display = "inline-flex";
+  const s = getSession();
+  // Só mostra o botão Admin para conta autorizada.
+  link.style.display = s?.isAdmin ? "inline-flex" : "none";
 }
 
 export function initSmartHeader(){
   revealAdmin();
+  window.addEventListener("ds:session-changed", revealAdmin);
   const header = document.querySelector(".header");
   if(!header) return;
 
