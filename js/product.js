@@ -4,6 +4,81 @@ import { toast } from "./ui.js";
 function qs(sel){ return document.querySelector(sel); }
 function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
 
+function setupPdpBar(p, rating){
+  const bar = qs("#pdpBar");
+  if(!bar) return;
+
+  const nameEl = qs("#pdpBarName");
+  const priceEl = qs("#pdpBarPrice");
+  const sizeEl = qs("#pdpBarSize");
+  const btnEl = qs("#pdpBarBtn");
+
+  if(nameEl) nameEl.textContent = p.name || "Produto";
+  if(priceEl) priceEl.textContent = moneyBRL(p.price || 0);
+
+  const sizeTxt = String(p.size||"").trim();
+  if(sizeEl) sizeEl.textContent = "Tam: " + (sizeTxt || "—");
+
+  // click: add same as main button
+  btnEl?.addEventListener("click", ()=>{
+    const qty = Number(qs("#qtyVal")?.textContent || 1) || 1;
+    const res = addToCart(p.id, qty);
+    toast(res.message);
+    updateCartCount();
+  });
+
+  // show bar only when main add button is out of view (mobile)
+  const mainBtn = qs("#addBtn");
+  if(!mainBtn || !("IntersectionObserver" in window)){
+    bar.setAttribute("aria-hidden","false");
+    bar.classList.add("is-visible");
+    return;
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    const e = entries[0];
+    const visible = !(e && e.isIntersecting);
+    bar.setAttribute("aria-hidden", visible ? "false":"true");
+    bar.classList.toggle("is-visible", visible);
+  }, { threshold: 0.15 });
+
+  io.observe(mainBtn);
+
+  // structured data (JSON-LD)
+  try{
+    const ld = {
+      "@context":"https://schema.org",
+      "@type":"Product",
+      "name": p.name || "Produto",
+      "description": p.description || "Produto premium Diamondsect.",
+      "image": (p.images && p.images.length ? p.images : [p.image]).filter(Boolean),
+      "brand": {"@type":"Brand","name":"Diamondsect"},
+      "offers": {
+        "@type":"Offer",
+        "priceCurrency":"BRL",
+        "price": Number(p.price||0),
+        "availability": (Number(p.stock||0) > 0) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+        "url": location.href
+      }
+    };
+    if(rating && rating.count){
+      ld.aggregateRating = {
+        "@type":"AggregateRating",
+        "ratingValue": Number((rating.avg||0).toFixed(2)),
+        "reviewCount": Number(rating.count||0)
+      };
+    }
+    let tag = document.getElementById("dsProductLD");
+    if(!tag){
+      tag = document.createElement("script");
+      tag.type="application/ld+json";
+      tag.id="dsProductLD";
+      document.head.appendChild(tag);
+    }
+    tag.textContent = JSON.stringify(ld);
+  }catch{ /* ignore */ }
+}
+
 // --- Reviews (local only) ---
 const REV_KEY = "ds_reviews_v1";
 
@@ -359,6 +434,9 @@ function render(){
 
   // reviews
   initReviews(p);
+
+  // mobile sticky add-to-cart + JSON-LD
+  setupPdpBar(p, rating);
 }
 
 function renderSizeChart(p){
