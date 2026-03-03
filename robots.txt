@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://ricoinsky.github.io/diamondsect-first/sitemap.xml
