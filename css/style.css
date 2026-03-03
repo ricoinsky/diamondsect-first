@@ -780,3 +780,37 @@ button,input,select,textarea{font:inherit}
 .mainshot.is-hoverzoom .zoomhint{ opacity:.9; }
 
 .admin-link{display:none}
+
+
+/* ===== UX polish (focus, skip link, FAQ) ===== */
+.skiplink{
+  position:absolute;left:-999px;top:10px;
+  background:#fff;color:#000;
+  padding:10px 12px;border-radius:12px;
+  z-index:999999;
+}
+.skiplink:focus{left:12px}
+:focus-visible{
+  outline:2px solid rgba(214,214,214,.9);
+  outline-offset:3px;
+}
+.faq{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 14px;margin:10px 0;background:rgba(255,255,255,.04)}
+.faq summary{cursor:pointer;font-weight:800}
+.faq p{margin-top:10px;color:var(--muted)}
+
+/* ===== PDP mobile sticky add-to-cart ===== */
+.pdpbar{
+  position:fixed;left:12px;right:12px;bottom:12px;
+  border-radius:18px;border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.78);backdrop-filter: blur(12px);
+  padding:12px;display:none;z-index:99999;
+  transform: translateY(140%);transition: transform .25s ease;
+}
+.pdpbar.is-visible{transform:translateY(0)}
+.pdpbar .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.pdpbar .name{font-weight:900;font-size:14px;line-height:1.1}
+.pdpbar .price{font-weight:900;font-size:14px}
+.pdpbar .btn{width:100%}
+@media (max-width: 860px){
+  .pdpbar{display:block}
+}
