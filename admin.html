@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diamondsect | Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .admwrap{max-width:1180px;margin:34px auto;padding:0 16px}
+    table{width:100%;border-collapse:collapse}
+    th,td{border-bottom:1px solid rgba(255,255,255,.10);padding:12px 10px;text-align:left;font-size:13px;color:rgba(255,255,255,.9)}
+    th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+    .admgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:900px){.admgrid{grid-template-columns:1fr}}
+    .help{color:rgba(255,255,255,.65);font-size:12.5px;line-height:1.5;margin-top:8px}
+  
+    /* ===== Admin Gate (client-side) ===== */
+    body.adm-locked main{filter: blur(6px); pointer-events:none; user-select:none}
+    .adminGate{
+      position:fixed; inset:0; z-index:9999;
+      display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(206,165,92,.18), rgba(0,0,0,.82) 55%), rgba(0,0,0,.78);
+      backdrop-filter: blur(10px);
+      padding:18px;
+    }
+    .adminGate__card{
+      width:min(520px, 100%);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      background: rgba(20,20,20,.72);
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+      overflow:hidden;
+    }
+    .adminGate__head{padding:18px 18px 10px}
+    .adminGate__title{margin:0;font-size:16px;letter-spacing:.4px}
+    .adminGate__sub{margin:6px 0 0;color:rgba(255,255,255,.72);font-size:13px;line-height:1.35}
+    .adminGate__body{padding:14px 18px 18px; display:grid; gap:10px}
+    .adminGate__row{display:grid; gap:8px}
+    .adminGate__mini{margin-top:8px;font-size:12px;color:rgba(255,255,255,.65)}
+    .adminGate__label{font-size:12px;color:rgba(255,255,255,.75)}
+    .adminGate__input{
+      width:100%; padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      color:#fff; outline:none;
+    }
+    .adminGate__input:focus{border-color: rgba(206,165,92,.55); box-shadow: 0 0 0 3px rgba(206,165,92,.18)}
+    .adminGate__actions{display:flex; gap:10px; align-items:center; justify-content:space-between; margin-top:6px}
+    .adminGate__btn{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(206,165,92,.16);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      font-weight:600;
+    }
+    .adminGate__btn:hover{transform: translateY(-1px); background: rgba(206,165,92,.22); border-color: rgba(206,165,92,.40)}
+    .adminGate__hint{font-size:12px; color:rgba(255,255,255,.62)}
+    .adminGate__err{min-height:18px; font-size:12px; color:#ffb3b3}
+    .adminGate__shake{animation: agshake .28s ease-in-out 0s 2}
+    @keyframes agshake{0%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)}}
+
+  </style>
+
+  <meta name="description" content="Diamondsect: experiência premium em moda e acessórios." />
+  <meta property="og:site_name" content="Diamondsect" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Diamondsect" />
+  <meta property="og:description" content="Diamondsect: experiência premium em moda e acessórios." />
+  <meta name="theme-color" content="#0b0b0b" />
+
+</head>
+
+<body>
+
+  <div class="topbar" role="region" aria-label="Avisos">
+    <div class="topbar__track">
+      <span>FRETE GRÁTIS PARA TODO O BRASIL | GARANTIA DE 30 DIAS</span>
+      <span>CUPOM DE PRIMEIRA COMPRA</span>
+      <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
+      <span>COMPRA SEGURA</span>
+      <span>FRETE GRÁTIS PARA TODO O BRASIL | GARANTIA DE 30 DIAS</span>
+      <span>CUPOM DE PRIMEIRA COMPRA</span>
+      <span>PARCELE EM ATÉ 12X NO CARTÃO</span>
+      <span>COMPRA SEGURA</span>
+    </div>
+  </div>
+
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__left">
+        <a class="btn btn--mini" href="admin.html" title="Área Admin (cadastrar produtos)">Admin</a>
+      </div>
+
+      <a class="brand" href="index.html">Diamondsect</a>
+
+      <div class="header__right">
+        <form class="search search--inline" action="#" onsubmit="event.preventDefault();">
+          <span class="search__icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="O que você está buscando?" autocomplete="off" />
+          <button class="search__btn" type="button" title="Pesquisar">Buscar</button>
+        </form>
+
+        <button class="accountbtn" type="button" data-account-btn aria-label="Conta">
+          <span class="avatar" data-account-avatar>DS</span>
+          <span data-account-label>Entrar</span>
+        </button>
+
+        <a class="cartbtn cartbtn--premium" href="carrinho.html" aria-label="Meu carrinho">
+          <span class="cartbtn__label">Meu carrinho</span>
+          <span class="cartcount">0</span>
+        </a>
+      </div>
+
+      <nav class="nav">
+      <a class="is-active" href="index.html">Início</a>
+      <a class="" href="ternos.html">Ternos</a>
+      <a class="" href="perfumaria.html">Perfumaria</a>
+      <a class="" href="joias.html">Joias</a>
+      <a class="" href="linho.html">Linho</a>
+      <a class="" href="blazer.html">Blazer</a>
+      <a href="#suporte">Suporte</a>
+      <a href="#rastrear">Rastrear pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Auth modal -->
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="modal__backdrop" id="authBackdrop" data-close-auth></div>
+    <div class="modal__box">
+      <button class="modal__close" type="button" data-close-auth aria-label="Fechar">Fechar</button>
+      <h2 id="authTitle">Entrar</h2>
+      <input type="hidden" id="authMode" value="login" />
+      <div class="fieldcol">
+        <div id="authNameWrap" style="display:none">
+          <input id="authName" type="text" placeholder="Seu nome" />
+        </div>
+        <input id="authEmail" type="email" placeholder="Seu e-mail" autocomplete="email" />
+        <input id="authPass" type="password" placeholder="Senha" autocomplete="current-password" />
+        <button class="btn" type="button" id="authSubmit">Entrar</button>
+        <div id="authToast" class="badge-ok" style="display:none"></div>
+        <div class="switchrow">
+          <span id="authSwitchText">Não tem conta?</span>
+          <a id="authSwitch">Criar conta</a>
+        </div>
+        <div class="authnote">⚠️ Login é local (salvo no navegador). Para login real com segurança, depois a gente integra com backend.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <main class="admwrap">
+    <div class="panel">
+      <h2 style="font-size:18px;letter-spacing:.08em;text-transform:uppercase">Admin — Catálogo</h2>
+      
+    <div style="height:16px"></div>
+
+    <div class="panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <h2 style="font-size:16px;letter-spacing:.08em;text-transform:uppercase;margin:0">Avaliações (clientes)</h2>
+        <div class="small">Total: <b id="admRevCount">0</b></div>
+      </div>
+
+      <div class="small muted" style="margin-bottom:10px">Somente avaliações de compras (clientes logados) aparecem aqui. Você pode remover qualquer comentário.</div>
+
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th><th>Estrelas</th><th>Nome</th><th>Comentário</th><th>Data</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="admRevBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+<p class="help">
+        Aqui você cadastra produtos, estoque e múltiplas fotos. O site fica vazio até você adicionar itens (do jeito que você pediu).
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="admgrid">
+        <div>
+          <div class="small">ID (deixe vazio para gerar automático)</div>
+          <input class="fieldcol" style="width:100%" id="pid" placeholder="ex: 101" />
+        </div>
+        <div>
+          <div class="small">Nome</div>
+          <input class="fieldcol" style="width:100%" id="pname" placeholder="Ex: Terno Imperial" />
+        </div>
+
+        <div>
+          <div class="small">Categoria</div>
+          <select id="pcat" style="width:100%;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:#fff">
+            <option value="ternos">Ternos</option>
+            <option value="perfumaria">Perfumaria</option>
+            <option value="joias">Joias</option>
+            <option value="linho">Linho</option>
+            <option value="blazer">Blazer</option>
+          </select>
+        </div>
+
+        <div>
+          <div class="small">Subcategoria (Joias: relogios/pulseiras/colares)</div>
+          <input class="fieldcol" style="width:100%" id="psub" placeholder="opcional" />
+        </div>
+
+        <div>
+          <div class="small">Preço (R$)</div>
+          <input class="fieldcol" style="width:100%" id="pprice" type="number" step="0.01" value="0" />
+        </div>
+
+        <div>
+          <div class="small">Estoque</div>
+          <input class="fieldcol" style="width:100%" id="pstock" type="number" step="1" value="0" />
+        </div>
+
+        <div>
+          <div class="small">Imagem principal (URL)</div>
+          <input class="fieldcol" style="width:100%" id="pimg" placeholder="https://..." />
+        </div>
+
+        <div>
+          <div class="small">Outras imagens (URLs separadas por vírgula)</div>
+          <input class="fieldcol" style="width:100%" id="pimgs" placeholder="https://..., https://..., https://..." />
+        </div>
+
+        <div>
+          <div class="small">Vídeo do produto (URL — YouTube ou .mp4) <span class="muted">(opcional)</span></div>
+          <input class="fieldcol" style="width:100%" id="pvideo" placeholder="https://youtube.com/... ou https://.../video.mp4" />
+        </div>
+
+        <div>
+          <div class="small">Look completo (IDs de produtos, separados por vírgula) <span class="muted">(opcional)</span></div>
+          <input class="fieldcol" style="width:100%" id="plook" placeholder="Ex: 101, 205, 330" />
+        </div>
+
+        <div style="grid-column:1/-1">
+          <div class="small">Descrição</div>
+          <textarea id="pdesc" rows="4" style="width:100%;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:#fff;outline:none" placeholder="Texto do produto..."></textarea>
+        </div>
+
+        <div>
+          <div class="small">Score de vendidos (opcional)</div>
+          <input class="fieldcol" style="width:100%" id="psold" type="number" step="1" value="0" />
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:end;flex-wrap:wrap">
+          <button class="btn" type="button" id="saveBtn">Salvar</button>
+          <button class="btn" type="button" id="clearBtn">Limpar</button>
+          <button class="btn" type="button" id="wipeBtn">Apagar tudo</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px">
+        <h2 style="font-size:16px;letter-spacing:.08em;text-transform:uppercase;margin:0">Produtos cadastrados</h2>
+        <div class="small">Total: <b id="admCount">0</b></div>
+      </div>
+
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Nome</th><th>Categoria</th><th>Sub</th><th>Estoque</th><th>Preço</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="admBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    
+    <div style="height:16px"></div>
+
+    <div class="panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <h2 style="font-size:16px;letter-spacing:.08em;text-transform:uppercase;margin:0">Avaliações (clientes)</h2>
+        <div class="small">Total: <b id="admRevCount">0</b></div>
+      </div>
+
+      <div class="small muted" style="margin-bottom:10px">Somente avaliações de compras (clientes logados) aparecem aqui. Você pode remover qualquer comentário.</div>
+
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th><th>Estrelas</th><th>Nome</th><th>Comentário</th><th>Data</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="admRevBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+<p class="help">Dica: para Joias, use subcategoria exatamente: <b>relogios</b>, <b>pulseiras</b> ou <b>colares</b>.</p>
+  </main>
+
+  <!-- Admin Gate: this is NOT real security (client-side). Use it to hide the admin UI for casual access. -->
+  <div id="adminGate" class="adminGate" hidden aria-hidden="true">
+    <div class="adminGate__card" role="dialog" aria-modal="true" aria-labelledby="agTitle">
+      <div class="adminGate__head">
+        <h2 id="agTitle" class="adminGate__title">Acesso restrito</h2>
+        <p class="adminGate__sub">Digite o <b>código de acesso</b> e a <b>senha</b> do Admin para liberar o painel.</p>
+      </div>
+      <div class="adminGate__body">
+        <div class="adminGate__row">
+          <span class="adminGate__label">Código</span>
+          <input id="agKey" class="adminGate__input" type="password" inputmode="text" autocomplete="off" placeholder="cole/ digite o código" />
+          <div class="adminGate__mini">Dica: você pode abrir direto com <b>?k=SEU_CODIGO</b> (mais rápido).</div>
+        </div>
+
+        <div class="adminGate__row">
+          <span class="adminGate__label">Senha</span>
+          <input id="agPass" class="adminGate__input" type="password" inputmode="text" autocomplete="current-password" placeholder="••••••••" />
+          <div id="agErr" class="adminGate__err"></div>
+        </div>
+
+        <div class="adminGate__actions">
+          <button id="agBtn" class="adminGate__btn" type="button">Liberar</button>
+          <span class="adminGate__hint">Dica: você pode trocar <b>código</b> e <b>senha</b> no arquivo <b>admin.html</b>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module">
+import { initAuth } from "./js/auth.js";
+import { initSmartHeader } from "./js/header.js";
+import { initAdmin } from "./js/admin.js";
+
+// ===== Admin Gate (client-side lock) =====
+// ⚠️ Importante: em GitHub Pages isso é um bloqueio NO NAVEGADOR (client-side). Ajuda muito contra curiosos e bots simples,
+// mas não substitui um backend de verdade.
+//
+// Segurança aplicada aqui:
+// 1) 2 fatores (obscuridade): CÓDIGO + SENHA (ambos conferidos por hash)
+// 2) PBKDF2 (SHA-256) com alto número de iterações para a senha
+// 3) Rate-limit + lockout progressivo por tentativas erradas
+// 4) Delay aleatório em falha (mitiga brute force rápido)
+//
+// ✅ Como trocar o CÓDIGO e a SENHA:
+// - CÓDIGO: substitua ACCESS_KEY_SHA256_HEX pelo SHA-256 do seu código (string).
+// - SENHA: gere um novo SALT e o novo DERIVED_KEY com PBKDF2.
+//
+// Snippet (cole no console do navegador):
+//   // gerar hash do código:
+//   async function sha256Hex(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
+//   // gerar salt + derived key da senha (PBKDF2):
+//   async function pbkdf2Hex(pass, saltHex, iter=310000){const salt=new Uint8Array(saltHex.match(/../g).map(h=>parseInt(h,16)));const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,iterations:iter},key,256);return [...new Uint8Array(bits)].map(x=>x.toString(16).padStart(2,'0')).join('');}
+//
+// Valores atuais (troque se quiser):
+const ACCESS_KEY_SHA256_HEX = "b0b47e072616773d9a6704a9745f810c3f2f9f7023315a6f9cd59626ea09b510"; // SHA-256 do seu CÓDIGO
+const PASS_PBKDF2_SALT_HEX  = "14e2c76fb4da0b0c10f2520f859e5914";    // 16 bytes em hex
+const PASS_PBKDF2_ITER      = 310000;
+const PASS_DERIVED_KEY_HEX  = "4d9c324db3fbbf1d5c1f58c5caa5e5ce3216f9264cebce930e6184d1ce0d12db";      // PBKDF2(pass, salt, iter) -> 32 bytes hex
+
+const TOKEN_KEY = "ds_admin_ok_v2";
+const TOKEN_TTL_MS = 1000 * 60 * 60 * 8; // 8h
+
+const FAIL_KEY = "ds_admin_fail_v2";
+const LOCK_KEY = "ds_admin_lock_until_v2";
+
+function hexFromBuffer(buf){
+  const bytes = new Uint8Array(buf);
+  return Array.from(bytes).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+function timingSafeEqual(a,b){
+  if(typeof a !== 'string' || typeof b !== 'string') return false;
+  if(a.length !== b.length) return false;
+  let out = 0;
+  for(let i=0;i<a.length;i++) out |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return out === 0;
+}
+
+async function sha256Hex(str){
+  const enc = new TextEncoder().encode(str);
+  const buf = await crypto.subtle.digest("SHA-256", enc);
+  return hexFromBuffer(buf);
+}
+
+async function pbkdf2Hex(pass, saltHex, iterations){
+  const salt = new Uint8Array(saltHex.match(/../g).map(h=>parseInt(h,16)));
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits({ name:"PBKDF2", hash:"SHA-256", salt, iterations }, key, 256);
+  return hexFromBuffer(bits);
+}
+
+function tokenValid(){
+  try {
+    const raw = sessionStorage.getItem(TOKEN_KEY);
+    if(!raw) return false;
+    const data = JSON.parse(raw);
+    if(!data?.t) return false;
+    return (Date.now() - data.t) < TOKEN_TTL_MS;
+  } catch(e) {
+    return false;
+  }
+}
+
+function setToken(){
+  sessionStorage.setItem(TOKEN_KEY, JSON.stringify({ t: Date.now() }));
+}
+
+function clearToken(){
+  sessionStorage.removeItem(TOKEN_KEY);
+}
+
+function getParam(name){
+  try {
+    return new URLSearchParams(location.search).get(name);
+  } catch {
+    return null;
+  }
+}
+
+function jitterDelay(minMs=550, maxMs=1350){
+  const ms = Math.floor(minMs + Math.random()*(maxMs-minMs));
+  return new Promise(r => setTimeout(r, ms));
+}
+
+function getFailState(){
+  try {
+    const raw = localStorage.getItem(FAIL_KEY);
+    if(!raw) return {count:0, last:0};
+    const d = JSON.parse(raw);
+    return {count: Number(d.count)||0, last: Number(d.last)||0};
+  } catch {
+    return {count:0, last:0};
+  }
+}
+
+function setFailState(count){
+  localStorage.setItem(FAIL_KEY, JSON.stringify({count, last: Date.now()}));
+}
+
+function getLockUntil(){
+  const v = Number(localStorage.getItem(LOCK_KEY) || 0);
+  return Number.isFinite(v) ? v : 0;
+}
+
+function setLockUntil(ts){ localStorage.setItem(LOCK_KEY, String(ts)); }
+
+function resetFails(){
+  localStorage.removeItem(FAIL_KEY);
+  localStorage.removeItem(LOCK_KEY);
+}
+
+function lockForMs(ms){
+  const until = Date.now() + ms;
+  setLockUntil(until);
+  return until;
+}
+
+function formatLeft(ms){
+  const s = Math.max(0, Math.ceil(ms/1000));
+  const m = Math.floor(s/60);
+  const r = s%60;
+  return m>0 ? `${m}m ${String(r).padStart(2,'0')}s` : `${r}s`;
+}
+
+async function adminGate(){
+  // logout rápido
+  if(getParam("logout") === "1") {
+    clearToken();
+    resetFails();
+  }
+
+  // Se já tá validado, libera
+  if(tokenValid()){
+    document.body.classList.remove("adm-locked");
+    return true;
+  }
+
+  // Lock UI
+  document.body.classList.add("adm-locked");
+
+  const gate = document.getElementById("adminGate");
+  const pass = document.getElementById("agPass");
+  const key  = document.getElementById("agKey");
+  const btn  = document.getElementById("agBtn");
+  const err  = document.getElementById("agErr");
+  const card = gate?.querySelector(".adminGate__card");
+
+  if(!gate || !pass || !key || !btn || !err) {
+    // se por algum motivo o gate sumiu, não libera
+    return false;
+  }
+
+  // prefill do código via URL ?k=
+  const kParam = getParam("k");
+  if(kParam) key.value = kParam;
+
+  gate.classList.add("show");
+
+  function updateLockMessage(){
+    const until = getLockUntil();
+    const now = Date.now();
+    if(until > now){
+      err.textContent = `Muitas tentativas. Tente de novo em ${formatLeft(until-now)}.`;
+      btn.disabled = true;
+      return true;
+    }
+    btn.disabled = false;
+    return false;
+  }
+
+  updateLockMessage();
+  const lockTimer = setInterval(updateLockMessage, 500);
+
+  async function tryUnlock(){
+    if(updateLockMessage()) return;
+
+    err.textContent = "";
+    btn.disabled = true;
+
+    const code = (key.value || "").trim();
+    const pw   = (pass.value || "").trim();
+
+    if(!code || !pw){
+      err.textContent = "Preencha código e senha.";
+      btn.disabled = false;
+      return;
+    }
+
+    // valida código (sha256)
+    const codeHash = await sha256Hex(code);
+    const codeOk = timingSafeEqual(codeHash, ACCESS_KEY_SHA256_HEX);
+
+    // valida senha (pbkdf2)
+    const dk = await pbkdf2Hex(pw, PASS_PBKDF2_SALT_HEX, PASS_PBKDF2_ITER);
+    const passOk = timingSafeEqual(dk, PASS_DERIVED_KEY_HEX);
+
+    if(codeOk && passOk){
+      setToken();
+      resetFails();
+      gate.classList.remove("show");
+      document.body.classList.remove("adm-locked");
+      clearInterval(lockTimer);
+      return true;
+    }
+
+    // falhou -> incrementa e aplica lock progressivo
+    const st = getFailState();
+    const next = st.count + 1;
+    setFailState(next);
+
+    // Regra de lock:
+    // 1-4: sem lock, só delay
+    // 5: 30 min
+    // 6: 60 min
+    // 7: 120 min ...
+    if(next >= 5){
+      const exp = Math.min(6, next - 5); // limita crescimento
+      const lockMin = 30 * Math.pow(2, exp);
+      lockForMs(lockMin * 60 * 1000);
+    }
+
+    await jitterDelay();
+    err.textContent = "Código ou senha incorretos.";
+    btn.disabled = false;
+
+    card.classList.remove("adminGate__shake"); void card.offsetWidth; card.classList.add("adminGate__shake");
+    return false;
+  }
+
+  btn.addEventListener("click", tryUnlock);
+  pass.addEventListener("keydown", (e) => { if(e.key === "Enter") tryUnlock(); });
+  key.addEventListener("keydown", (e) => { if(e.key === "Enter") tryUnlock(); });
+
+  return new Promise((resolve) => {
+    const obs = new MutationObserver(() => {
+      if(!document.body.classList.contains("adm-locked")) {
+        obs.disconnect();
+        resolve(true);
+      }
+    });
+    obs.observe(document.body, { attributes:true, attributeFilter:["class"] });
+  });
+}
+
+
+// Init básico
+initAuth();
+initSmartHeader();
+
+// Só libera o Admin depois da senha
+await adminGate();
+initAdmin();
+  </script>
+</body>
+</html>
