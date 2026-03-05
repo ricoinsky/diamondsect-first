@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "texts": {
+    "brand.name": "Diamondsect",
+
+    "topbar.marquee": [
+      "FRETE GRÁTIS PARA TODO O BRASIL | GARANTIA DE 30 DIAS",
+      "CUPOM DE PRIMEIRA COMPRA",
+      "PARCELE EM ATÉ 12X NO CARTÃO",
+      "COMPRA SEGURA"
+    ],
+
+    "search.placeholder": "O que você está buscando?",
+    "search.button": "Buscar",
+    "cart.label": "Meu carrinho",
+
+    "nav.home.label": "Início",
+    "nav.home.href": "index.html",
+    "nav.ternos.label": "Ternos",
+    "nav.ternos.href": "ternos.html",
+    "nav.perfumaria.label": "Perfumaria",
+    "nav.perfumaria.href": "perfumaria.html",
+    "nav.joias.label": "Joias",
+    "nav.joias.href": "joias.html",
+    "nav.linho.label": "Linho",
+    "nav.linho.href": "linho.html",
+    "nav.blazer.label": "Blazer",
+    "nav.blazer.href": "blazer.html",
+    "nav.suporte.label": "Suporte",
+    "nav.suporte.href": "#suporte",
+    "nav.rastrear.label": "Rastrear pedido",
+    "nav.rastrear.href": "#rastrear",
+
+    "auth.title": "Entrar",
+    "auth.namePlaceholder": "Seu nome",
+    "auth.emailPlaceholder": "Seu e-mail",
+    "auth.passPlaceholder": "Senha",
+    "auth.submit": "Entrar",
+    "auth.switchText": "Não tem conta?",
+    "auth.switchBtn": "Criar conta",
+    "auth.note": "⚠️ Login é local (salvo no navegador). Para login real com segurança, depois a gente integra com backend.",
+
+    "index.featuredTitle": "Destaques",
+    "index.featuredLinkLabel": "Ver coleção",
+    "index.resultCountLabel": "0 item(s)",
+    "index.sortLabel": "Ordenar:",
+    "index.sort.best": "Mais vendidos",
+    "index.sort.low": "Menor preço",
+    "index.sort.high": "Maior preço",
+
+    "newsletter.title": "Novidades",
+    "newsletter.subtitle": "Receba lançamentos e ofertas em primeira mão.",
+    "newsletter.button": "Assinar",
+
+    "footer.col1.title": "Central de Atendimento",
+    "footer.col1.line1": "Seg a Sab: 08:00 às 22:00",
+    "footer.col1.line2": "WhatsApp: (seu número)",
+    "footer.col1.line3": "E-mail: contato@diamondsect.com.br",
+
+    "footer.col2.title": "Informações",
+    "footer.col2.link1": "Política de Privacidade",
+    "footer.col2.link2": "Termos e Condições",
+    "footer.col2.link3": "Trocas e Devoluções",
+
+    "footer.col3.title": "Suporte",
+    "footer.col3.link1": "Contato",
+    "footer.col3.link2": "Central de Ajuda",
+
+    "footer.col4.title": "Confiança",
+    "footer.col4.line1": "Compra segura • Ambiente protegido",
+    "footer.col4.line2": "Pagamentos: Pix, Crédito, Débito (em breve)",
+
+    "footer.tagline": "Diamondsect | Todos os direitos reservados."
+  },
+
+  "heroes": {
+    "index": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-ternos.jpg",
+          "title": "Luxo, lifestyle\ne presença.",
+          "subtitle": "Curadoria premium em alfaiataria, linho e joias.",
+          "ctaText": "Explorar coleção",
+          "ctaHref": "ternos.html"
+        },
+        {
+          "image": "assets/hero/hero-linho.jpg",
+          "title": "Alfaiataria\nde impacto.",
+          "subtitle": "Cortes refinados, estética premium.",
+          "ctaText": "Ver blazers",
+          "ctaHref": "blazer.html"
+        },
+        {
+          "image": "assets/hero/hero-joias.jpg",
+          "title": "Linho\nelegante.",
+          "subtitle": "Textura nobre, leveza e acabamento premium.",
+          "ctaText": "Ver linho",
+          "ctaHref": "linho.html"
+        }
+      ]
+    },
+
+    "ternos": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-ternos.jpg",
+          "title": "Ternos\npremium.",
+          "subtitle": "Corte, presença e acabamento de alto padrão.",
+          "ctaText": "Ver destaques",
+          "ctaHref": "#produtos"
+        }
+      ]
+    },
+
+    "linho": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-linho.jpg",
+          "title": "Linho\nelegante.",
+          "subtitle": "Leveza, textura nobre e visual sofisticado.",
+          "ctaText": "Ver produtos",
+          "ctaHref": "#produtos"
+        }
+      ]
+    },
+
+    "joias": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-joias.jpg",
+          "title": "Joias\ncom presença.",
+          "subtitle": "Detalhes que elevam o seu estilo.",
+          "ctaText": "Ver coleção",
+          "ctaHref": "#produtos"
+        }
+      ]
+    },
+
+    "blazer": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-ternos.jpg",
+          "title": "Blazer\nrefinado.",
+          "subtitle": "Alfaiataria versátil para ocasiões premium.",
+          "ctaText": "Ver produtos",
+          "ctaHref": "#produtos"
+        }
+      ]
+    },
+
+    "perfumaria": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-joias.jpg",
+          "title": "Perfumaria\nselecionada.",
+          "subtitle": "Assinatura olfativa com presença e elegância.",
+          "ctaText": "Ver produtos",
+          "ctaHref": "#produtos"
+        }
+      ]
+    },
+
+    "product": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-ternos.jpg",
+          "title": "Detalhes\nimportam.",
+          "subtitle": "Uma experiência premium do início ao fim.",
+          "ctaText": "Voltar",
+          "ctaHref": "javascript:history.back()"
+        }
+      ]
+    },
+
+    "carrinho": {
+      "slides": [
+        {
+          "image": "assets/hero/hero-linho.jpg",
+          "title": "Seu carrinho\npremium.",
+          "subtitle": "Finalize com segurança e estilo.",
+          "ctaText": "Continuar comprando",
+          "ctaHref": "index.html#produtos"
+        }
+      ]
+    }
+  }
+}
