@@ -201,7 +201,7 @@ button,input,select,textarea{font:inherit}
   background-color:#050505;
 }
 .hero__slide.is-active{opacity:1;transform:scale(1);pointer-events:auto}
-.hero__overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,0,.44) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.08) 100%),linear-gradient(to top, rgba(0,0,0,.28), rgba(0,0,0,.06), rgba(0,0,0,.02))}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.30) 42%, rgba(0,0,0,.10) 100%),linear-gradient(to top, rgba(0,0,0,.34), rgba(0,0,0,.10), rgba(0,0,0,.02))}
 .hero__content{position:relative;z-index:2;padding:7% 6.5%;max-width:760px}
 .hero__content h1{font-size:54px;letter-spacing:1px;line-height:1.1;margin-bottom:12px;font-weight:600}
 .hero__content p{font-size:16px;max-width:520px;color:rgba(255,255,255,.88);line-height:1.8;margin-bottom:16px}
@@ -222,7 +222,7 @@ button,input,select,textarea{font:inherit}
 .tri{padding:36px 6.5%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .tile{border:1px solid var(--line);background:rgba(0,0,0,.22);border-radius:18px;overflow:hidden;transition:.2s}
 .tile:hover{transform:translateY(-6px);border-color:rgba(242,242,242,.30)}
-.tile__img{height:220px;background-size:cover;background-position:center;position:relative;overflow:hidden}.tile__img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.22), rgba(0,0,0,.03))}
+.tile__img{height:220px;background-size:cover;background-position:center;position:relative;overflow:hidden}.tile__img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.32), rgba(0,0,0,.06))}
 .tile__content{padding:14px}
 .tile__content h3{font-size:14px;letter-spacing:1.2px}
 .tile__content span{display:block;margin-top:6px;font-size:12px;color:rgba(242,242,242,.7);letter-spacing:1px}
@@ -789,3 +789,6 @@ min-height:56vh}
 .mainshot.is-hoverzoom .zoomhint{ opacity:.9; }
 
 .admin-link{display:none}
+
+.hero__content{padding-top:8.5%;}
+.tile__img{background-position:center center;}
