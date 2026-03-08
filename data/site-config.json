@@ -80,8 +80,8 @@
         },
         {
           "image": "assets/hero/hero-linho.jpg",
-          "title": "Linho\nelegante.",
-          "subtitle": "Textura nobre, leveza e acabamento premium.",
+          "title": "Linho\nsofisticado.",
+          "subtitle": "Textura nobre, leveza e acabamento impecável para ocasiões elegantes.",
           "ctaText": "Ver linho",
           "ctaHref": "linho.html"
         }
@@ -168,19 +168,19 @@
   "cards": {
     "index": [
       {
-        "image": "assets/hero/hero-ternos.jpg",
+        "image": "assets/cards/card-ternos.jpg",
         "title": "TERNOS",
         "subtitle": "EXPLORAR COLEÇÃO",
         "href": "ternos.html"
       },
       {
-        "image": "assets/hero/hero-linho.jpg",
+        "image": "assets/cards/card-linho.jpg",
         "title": "LINHO",
         "subtitle": "QUALIDADE DO TECIDO",
         "href": "linho.html"
       },
       {
-        "image": "assets/hero/hero-joias.jpg",
+        "image": "assets/cards/card-joias.jpg",
         "title": "JOIAS",
         "subtitle": "STATUS COM ELEGÂNCIA",
         "href": "joias.html"
