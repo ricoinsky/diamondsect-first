@@ -6,12 +6,15 @@ const HERO_ASSETS = [
   "assets/hero/hero-linho.jpg",
   "assets/hero/hero-joias.jpg",
   "assets/hero/hero-blazer.jpg",
-  "assets/hero/hero-perfumaria.jpg"
-];
-const CARD_ASSETS = [
+  "assets/hero/hero-perfumaria.jpg",
   "assets/cards/card-ternos.jpg",
   "assets/cards/card-linho.jpg",
-  "assets/cards/card-joias.jpg"
+  "assets/cards/card-joias.jpg",
+  "assets/cards/card-blazer.jpg",
+  "assets/cards/card-perfumaria.jpg"
+];
+const HERO_VIDEO_ASSETS = [
+  "assets/video/hero-home.mp4"
 ];
 
 function $(id){ return document.getElementById(id); }
@@ -122,7 +125,8 @@ function slideEditor(pageKey, index, slide){
         <strong>${esc(pageKey)} — slide ${index + 1}</strong>
         <button class="btn btn--mini" type="button" data-remove-slide="${index}">Remover</button>
       </div>
-      <label class="cms-field"><span>Imagem (caminho ou URL)</span><input data-slide-field="image" data-slide-index="${index}" value="${esc(img)}" list="cms_hero_assets" /></label>
+      <label class="cms-field"><span>Imagem / poster (caminho ou URL)</span><input data-slide-field="image" data-slide-index="${index}" value="${esc(img)}" list="cms_hero_assets" /></label>
+      <label class="cms-field"><span>Vídeo (opcional, mp4)</span><input data-slide-field="video" data-slide-index="${index}" value="${esc(slide?.video || "")}" list="cms_video_assets" /></label>
       <label class="cms-field"><span>Título</span><textarea data-slide-field="title" data-slide-index="${index}" rows="2">${esc(slide?.title || "")}</textarea></label>
       <label class="cms-field"><span>Subtítulo</span><textarea data-slide-field="subtitle" data-slide-index="${index}" rows="2">${esc(slide?.subtitle || "")}</textarea></label>
       <div class="cms-grid-2">
@@ -168,18 +172,18 @@ function renderCardsEditor(cfg){
   wrap.innerHTML = cards.map((card, index)=>`
     <div class="cms-slide">
       <div class="cms-slide__head"><strong>Card ${index + 1}</strong></div>
-      <label class="cms-field"><span>Imagem</span><input data-card-field="image" data-card-index="${index}" value="${esc(card.image || CARD_ASSETS[index] || HERO_ASSETS[index] || HERO_ASSETS[0])}" list="cms_card_assets"></label>
+      <label class="cms-field"><span>Imagem</span><input data-card-field="image" data-card-index="${index}" value="${esc(card.image || HERO_ASSETS[index] || HERO_ASSETS[0])}" list="cms_hero_assets"></label>
       <label class="cms-field"><span>Título</span><input data-card-field="title" data-card-index="${index}" value="${esc(card.title || '')}"></label>
       <label class="cms-field"><span>Subtítulo</span><input data-card-field="subtitle" data-card-index="${index}" value="${esc(card.subtitle || '')}"></label>
       <label class="cms-field"><span>Link</span><input data-card-field="href" data-card-index="${index}" value="${esc(card.href || '#')}"></label>
-      <div class="cms-preview" style="background-image:url('${esc(card.image || CARD_ASSETS[index] || HERO_ASSETS[index] || HERO_ASSETS[0])}')"></div>
+      <div class="cms-preview" style="background-image:url('${esc(card.image || HERO_ASSETS[index] || HERO_ASSETS[0])}')"></div>
     </div>
   `).join('');
   wrap.querySelectorAll('[data-card-field="image"]').forEach(input=>{
     input.addEventListener('input', ()=>{
       const i = Number(input.dataset.cardIndex);
       const preview = wrap.querySelectorAll('.cms-preview')[i];
-      if(preview) preview.style.backgroundImage = `url('${input.value.trim() || CARD_ASSETS[i] || HERO_ASSETS[i] || HERO_ASSETS[0]}')`;
+      if(preview) preview.style.backgroundImage = `url('${input.value.trim() || HERO_ASSETS[i] || HERO_ASSETS[0]}')`;
     });
   });
 }
@@ -199,7 +203,7 @@ function collectConfig(baseCfg){
     const grouped = {};
     document.querySelectorAll('[data-slide-index][data-slide-field]').forEach(el=>{
       const i = Number(el.dataset.slideIndex);
-      grouped[i] = grouped[i] || { image: "", title: "", subtitle: "", ctaText: "", ctaHref: "#" };
+      grouped[i] = grouped[i] || { image: "", video: "", title: "", subtitle: "", ctaText: "", ctaHref: "#" };
       grouped[i][el.dataset.slideField] = String(el.value || "").trim();
     });
     next.heroes[pageKey] = { slides: Object.keys(grouped).sort((a,b)=>Number(a)-Number(b)).map(k => grouped[k]) };

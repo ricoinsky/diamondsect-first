@@ -17,7 +17,9 @@ function deepMerge(base, extra){
 }
 
 function getByPath(obj, path){
-  return String(path || "").split(".").reduce((acc, key) => acc && Object.prototype.hasOwnProperty.call(acc, key) ? acc[key] : undefined, obj);
+  if(!obj || !path) return undefined;
+  if(Object.prototype.hasOwnProperty.call(obj, path)) return obj[path];
+  return String(path).split(".").reduce((acc, key) => acc && Object.prototype.hasOwnProperty.call(acc, key) ? acc[key] : undefined, obj);
 }
 
 function fetchJson(url){
@@ -86,21 +88,35 @@ function applyTexts(cfg){
   }
 }
 
+function escHtml(str){
+  return String(str || "").replace(/[&<>"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s]));
+}
+function escAttr(str){
+  return String(str || "").replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 function buildHeroSlides(pageKey, slides){
   const wrap = document.getElementById("heroSlides");
   if(!wrap) return false;
   if(!Array.isArray(slides) || !slides.length) return false;
 
-  const html = slides.map((slide, index) => `
-    <article class="hero__slide${index === 0 ? ' is-active' : ''}" style="background-image:url('${String(slide.image || '').replace(/'/g, "&#39;")}');">
-      <div class="hero__overlay"></div>
-      <div class="hero__content">
-        <h1>${String(slide.title || '').replace(/\n/g, '<br>')}</h1>
-        <p>${String(slide.subtitle || '')}</p>
-        <a class="btn btn--light" href="${String(slide.ctaHref || '#')}">${String(slide.ctaText || 'Ver mais')}</a>
-      </div>
-    </article>
-  `).join("");
+  const html = slides.map((slide, index) => {
+    const hasVideo = !!slide.video;
+    const media = hasVideo
+      ? `<div class="hero__media"><video class="hero__video" playsinline muted loop preload="metadata" poster="${escAttr(slide.image || '')}"><source src="${escAttr(slide.video)}" type="video/mp4"></video></div>`
+      : "";
+    const bg = !hasVideo && slide.image ? ` style="background-image:url('${escAttr(slide.image)}');"` : "";
+    return `
+      <article class="hero__slide${index === 0 ? ' is-active' : ''}${hasVideo ? ' hero__slide--video' : ''}"${bg}>
+        ${media}
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <h1>${String(slide.title || '').split('\n').map(escHtml).join('<br>')}</h1>
+          <p>${escHtml(slide.subtitle || '')}</p>
+          <a class="btn btn--light" href="${escAttr(slide.ctaHref || '#')}">${escHtml(slide.ctaText || 'Ver mais')}</a>
+        </div>
+      </article>
+    `;
+  }).join("");
 
   const nav = `
     <div class="hero__nav" aria-hidden="false">
