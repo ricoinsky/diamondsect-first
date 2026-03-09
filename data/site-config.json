@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 3,
   "texts": {
     "brand.name": "Diamondsect",
     "topbar.marquee": [
@@ -65,25 +65,26 @@
     "index": {
       "slides": [
         {
+          "video": "assets/video/hero-home.mp4",
           "image": "assets/hero/hero-ternos.jpg",
           "title": "Luxo, lifestyle\ne presença.",
-          "subtitle": "Curadoria premium em alfaiataria, linho e joias.",
+          "subtitle": "Curadoria premium com movimento elegante no topo do site.",
           "ctaText": "Explorar coleção",
           "ctaHref": "ternos.html"
         },
         {
-          "image": "assets/hero/hero-blazer.jpg",
-          "title": "Blazer\nrefinado.",
-          "subtitle": "Estrutura elegante, caimento premium e visual sofisticado.",
-          "ctaText": "Ver blazers",
-          "ctaHref": "blazer.html"
-        },
-        {
           "image": "assets/hero/hero-linho.jpg",
-          "title": "Linho\nsofisticado.",
-          "subtitle": "Textura nobre, leveza e acabamento impecável para ocasiões elegantes.",
+          "title": "Linho\nelegante.",
+          "subtitle": "Leveza, textura nobre e visual sofisticado.",
           "ctaText": "Ver linho",
           "ctaHref": "linho.html"
+        },
+        {
+          "image": "assets/hero/hero-joias.jpg",
+          "title": "Joias\ncom presença.",
+          "subtitle": "Detalhes que elevam o seu estilo com assinatura premium.",
+          "ctaText": "Ver joias",
+          "ctaHref": "joias.html"
         }
       ]
     },
@@ -170,19 +171,19 @@
       {
         "image": "assets/cards/card-ternos.jpg",
         "title": "TERNOS",
-        "subtitle": "EXPLORAR COLEÇÃO",
+        "subtitle": "ALFAIATARIA PREMIUM",
         "href": "ternos.html"
       },
       {
         "image": "assets/cards/card-linho.jpg",
         "title": "LINHO",
-        "subtitle": "QUALIDADE DO TECIDO",
+        "subtitle": "LEVEZA E TEXTURA",
         "href": "linho.html"
       },
       {
         "image": "assets/cards/card-joias.jpg",
         "title": "JOIAS",
-        "subtitle": "STATUS COM ELEGÂNCIA",
+        "subtitle": "PRESENÇA SOFISTICADA",
         "href": "joias.html"
       }
     ]
