@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | Diamond Sect</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container">Painel administrativo Diamond Sect</div></div>
+<header class="header">
+  <div class="container">
+    <a class="brand" href="../index.html">
+      <img src="../assets/images/ui/logo-mark.svg" alt="Diamond Sect">
+      <span>DIAMONDSECT</span>
+    </a>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="../index.html">Ver loja</a>
+      <a class="btn btn-primary" href="../login.html">Conta</a>
+    </div>
+  </div>
+</header>
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker">/admin</div>
+    <h1>Painel de controle</h1>
+    <p>Adicione, edite e remova produtos. Veja pedidos e vendas por produto. O acesso é liberado para o email administrador configurado.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container admin-layout">
+    <aside class="admin-card">
+      <div id="adminGateNotice"></div>
+      <div class="admin-nav">
+        <button class="btn tab-btn active" data-tab="dashboard">Dashboard</button>
+        <button class="btn tab-btn" data-tab="products">Produtos</button>
+        <button class="btn tab-btn" data-tab="orders">Pedidos</button>
+        <button class="btn tab-btn" data-tab="new">Novo produto</button>
+      </div>
+    </aside>
+    <main>
+      <section class="admin-card admin-tab" id="tab-dashboard">
+        <h2>Visão geral</h2>
+        <div class="admin-grid">
+          <div class="stat"><b id="statProducts">0</b><span>produtos ativos</span></div>
+          <div class="stat"><b id="statOrders">0</b><span>pedidos registrados</span></div>
+          <div class="stat"><b id="statUnits">0</b><span>unidades vendidas</span></div>
+        </div>
+        <hr class="sep">
+        <h3>Mais vendidos</h3>
+        <div id="topSellers"></div>
+      </section>
+      <section class="admin-card admin-tab hidden" id="tab-products">
+        <h2>Produtos</h2>
+        <div id="productsTableWrap"></div>
+      </section>
+      <section class="admin-card admin-tab hidden" id="tab-orders">
+        <h2>Pedidos</h2>
+        <div id="ordersTableWrap"></div>
+      </section>
+      <section class="admin-card admin-tab hidden" id="tab-new">
+        <h2>Criar / editar produto</h2>
+        <form id="productForm">
+          <div class="form-grid">
+            <div class="field"><label>ID do produto</label><input id="p_id" placeholder="ex: cuban_edge_925"></div>
+            <div class="field"><label>Nome</label><input id="p_name"></div>
+            <div class="field"><label>Slug</label><input id="p_slug"></div>
+            <div class="field"><label>Categoria</label><select id="p_category"><option value="corrente">corrente</option><option value="pulseira">pulseira</option><option value="terno">terno</option></select></div>
+            <div class="field"><label>Subcategoria</label><input id="p_subcategory" placeholder="correntes, pulseiras, ternos"></div>
+            <div class="field"><label>Preço</label><input id="p_price" type="number" step="0.01"></div>
+            <div class="field"><label>Estoque</label><input id="p_stock" type="number"></div>
+            <div class="field"><label>Badge</label><input id="p_badge" placeholder="Mais vendido"></div>
+            <div class="field full"><label>Descrição curta</label><textarea id="p_short"></textarea></div>
+            <div class="field full"><label>Descrição premium</label><textarea id="p_description"></textarea></div>
+            <div class="field full"><label>Imagens (uma por linha)</label><textarea id="p_images"></textarea></div>
+            <div class="field full"><label>Especificações (formato: chave: valor)</label><textarea id="p_specs"></textarea></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+            <button class="btn btn-primary" type="submit">Salvar produto</button>
+            <button class="btn btn-ghost" type="button" id="resetProductForm">Limpar</button>
+          </div>
+          <div id="adminFormNotice"></div>
+        </form>
+      </section>
+    </main>
+  </div>
+</section>
+<script type="module" src="../js/firebase.js"></script>
+<script type="module" src="../js/admin.js"></script>
+</body>
+</html>
