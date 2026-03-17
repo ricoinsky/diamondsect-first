@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diamond Sect</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="topbar"><div class="container">🚚 Frete grátis para pedidos acima de R$600</div></div>
+<header class="header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/images/ui/logo-mark.svg" alt="Diamond Sect">
+      <span>DIAMONDSECT</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="ternos.html">Ternos</a>
+      <a href="joias.html">Joias</a>
+      <a href="perfumaria.html">Perfumaria</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="login.html" title="Conta">👤</a>
+      <a class="icon-btn" href="carrinho.html" title="Carrinho">🛒<span class="badge-dot" data-cart-count>0</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Diamond Sect</div>
+      <h1>Elegância que define presença.</h1>
+      <p>Site completo com catálogo premium, login com Firebase, painel admin, carrinho, estoque automático e leitura direta do seu banco de dados.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+        <a class="btn btn-primary" href="joias.html">Explorar joias</a>
+        <a class="btn btn-ghost" href="ternos.html">Ver ternos</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric"><b>1.243</b><span>clientes já escolheram Diamond Sect</span></div>
+        <div class="metric"><b>R$ 600</b><span>frete grátis acima desse valor</span></div>
+        <div class="metric"><b>10 dias</b><span>prazo médio de entrega</span></div>
+      </div>
+    </div>
+    <div class="hero-card glass">
+      <div class="hero-visual">
+        <img src="assets/images/joias/aureum-imperium-750-1.svg" alt="Hero Diamond Sect">
+      </div>
+      <div class="promo-strip">✔ Compra segura &nbsp; • &nbsp; ⚡ Estoque baixo automático &nbsp; • &nbsp; 🔥 Mais vendidos em destaque</div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Coleções</div>
+        <h2 class="section-title">Seleção Diamond Sect</h2>
+      </div>
+      <div class="section-note">Correntes, pulseiras e ternos em um visual premium.</div>
+    </div>
+    <div class="categories-grid">
+      <a class="category-card glass" href="joias.html#correntes"><h3>Correntes</h3><p>Prata 925 e ouro 18K com presença de marca e descrição premium.</p><span class="status-pill">4 modelos</span></a>
+      <a class="category-card glass" href="joias.html#pulseiras"><h3>Pulseiras</h3><p>Peças masculinas sofisticadas com acabamento polido e visual marcante.</p><span class="status-pill">2 modelos</span></a>
+      <a class="category-card glass" href="ternos.html"><h3>Ternos</h3><p>Alfaiataria premium com cortes modernos e páginas individuais por produto.</p><span class="status-pill">6 modelos</span></a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Destaques</div>
+        <h2 class="section-title">Produtos em evidência</h2>
+      </div>
+      <a class="btn btn-ghost" href="joias.html">Ver catálogo</a>
+    </div>
+    <div class="product-grid" data-products-grid data-limit="6"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom:12px">
+        <img src="assets/images/ui/logo-mark.svg" alt="Diamond Sect">
+        <span>DIAMONDSECT</span>
+      </div>
+      <p>Joias e ternos premium com visual de marca, experiência refinada e carrinho pronto para venda.</p>
+      <p>diamondsectstore.com</p>
+    </div>
+    <div>
+      <h4>Categorias</h4>
+      <p><a href="joias.html#correntes">Correntes</a></p>
+      <p><a href="joias.html#pulseiras">Pulseiras</a></p>
+      <p><a href="ternos.html">Ternos</a></p>
+      <p><a href="perfumaria.html">Perfumaria</a></p>
+    </div>
+    <div>
+      <h4>Atendimento</h4>
+      <p><a href="contato.html">Contato</a></p>
+      <p><a href="login.html">Minha conta</a></p>
+      <p><a href="admin/index.html">Admin</a></p>
+    </div>
+  </div>
+</footer>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/catalog.js"></script>
+</body>
+</html>
