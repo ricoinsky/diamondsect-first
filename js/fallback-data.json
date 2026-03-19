@@ -1,0 +1,323 @@
+{
+  "products": {
+    "categories": {
+      "correntes": true,
+      "pulseiras": true,
+      "ternos": true,
+      "perfumaria": false
+    },
+    "products": {
+      "items": {
+        "serpentine_slim_925": {
+          "name": "Diamond Sect — Serpentine Slim 925",
+          "slug": "serpentine-slim-925",
+          "category": "corrente",
+          "subcategory": "correntes",
+          "price": 389.99,
+          "stock": 50,
+          "shortDescription": "Corrente Serpentine Slim em prata 925, de visual minimalista e sofisticado.",
+          "description": "Elegância minimalista que nunca sai de moda. A Serpentine Slim 925 possui uma malha refinada em prata 925 que cria um brilho contínuo e sofisticado sobre a pele. Seu design slim transmite modernidade e discrição, sendo perfeita para composições elegantes ou para uso diário com estilo. Uma peça versátil que traduz o equilíbrio entre luxo, leveza e presença masculina.",
+          "images": [
+            "assets/images/joias/serpentine-slim-925-1.jpg",
+            "assets/images/joias/serpentine-slim-925-2.jpg",
+            "assets/images/joias/serpentine-slim-925-3.jpg"
+          ],
+          "specs": {
+            "material": "Prata 925",
+            "estilo": "Serpentine Slim",
+            "acabamento": "Polido de alto brilho",
+            "design": "Masculino minimalista",
+            "fecho": "Lagosta",
+            "marca": "Diamond Sect"
+          },
+          "badge": "Mais vendido",
+          "active": true
+        },
+        "cuban_edge_925": {
+          "name": "Diamond Sect — Cuban Edge 925",
+          "slug": "cuban-edge-925",
+          "category": "corrente",
+          "subcategory": "correntes",
+          "price": 410.0,
+          "stock": 50,
+          "shortDescription": "Corrente em prata 925 com malha cuban, visual marcante e acabamento premium.",
+          "description": "Imponente e atemporal, a Cuban Edge 925 é uma corrente que expressa força e personalidade. Seu design inspirado na clássica malha cubana apresenta elos bem definidos e acabamento polido, criando um visual marcante e sofisticado. Ideal para homens que valorizam presença, estilo e autenticidade, seja em ocasiões especiais ou no dia a dia.",
+          "images": [
+            "assets/images/joias/cuban-edge-925-1.jpg",
+            "assets/images/joias/cuban-edge-925-2.jpg",
+            "assets/images/joias/cuban-edge-925-3.jpg"
+          ],
+          "specs": {
+            "material": "Prata 925",
+            "estilo": "Cuban Edge",
+            "acabamento": "Polido premium",
+            "design": "Masculino imponente",
+            "fecho": "Lagosta",
+            "marca": "Diamond Sect"
+          },
+          "badge": "Produto premium",
+          "active": true
+        },
+        "crucis_imperium_925": {
+          "name": "Diamond Sect — Crucis Imperium 925",
+          "slug": "crucis-imperium-925",
+          "category": "corrente",
+          "subcategory": "correntes",
+          "price": 390.0,
+          "stock": 15,
+          "shortDescription": "Corrente em prata 925 com pingente de cruz, unindo fé, classe e presença.",
+          "description": "Símbolo de fé, força e autoridade. A Crucis Imperium 925 combina a elegância da corrente em prata 925 com um pingente de cruz de design sofisticado e acabamento impecável. Uma peça que carrega significado e estilo, projetada para homens que desejam expressar confiança, espiritualidade e presença marcante. Perfeita para elevar qualquer composição com um toque de classe e identidade.",
+          "images": [
+            "assets/images/joias/crucis-imperium-925-1.jpg",
+            "assets/images/joias/crucis-imperium-925-2.jpg",
+            "assets/images/joias/crucis-imperium-925-3.jpg"
+          ],
+          "specs": {
+            "material": "Prata 925",
+            "pingente": "Cruz minimalista",
+            "acabamento": "Polido premium",
+            "estilo": "Clássico masculino",
+            "fecho": "Lagosta",
+            "marca": "Diamond Sect"
+          },
+          "badge": "Estoque baixo",
+          "active": true
+        },
+        "aureum_imperium_750": {
+          "name": "Diamond Sect — Aureum Imperium 750",
+          "slug": "aureum-imperium-750",
+          "category": "corrente",
+          "subcategory": "correntes",
+          "price": 7950.0,
+          "stock": 29,
+          "shortDescription": "Corrente em ouro 18K estilo Piastrine, com design clássico e imponente.",
+          "description": "Uma joia criada para quem exige o mais alto nível de sofisticação. A Aureum Imperium 750 é confeccionada em ouro 18K, apresentando elos alongados no elegante estilo Piastrine, com acabamento polido que reflete luz de forma intensa e refinada. Seu design transmite autoridade, luxo e exclusividade, tornando-se uma peça que representa status e poder.",
+          "images": [
+            "assets/images/joias/aureum-imperium-750-1.jpg",
+            "assets/images/joias/aureum-imperium-750-2.jpg",
+            "assets/images/joias/aureum-imperium-750-3.jpg"
+          ],
+          "specs": {
+            "material": "Ouro 18K (750)",
+            "estilo": "Piastrine / Elos alongados",
+            "acabamento": "Polido",
+            "fecho": "Lagosta",
+            "design": "Masculino premium",
+            "marca": "Diamond Sect"
+          },
+          "badge": "Luxo",
+          "active": true
+        },
+        "silver_dominus_925": {
+          "name": "Diamond Sect — Silver Dominus 925",
+          "slug": "silver-dominus-925",
+          "category": "pulseira",
+          "subcategory": "pulseiras",
+          "price": 280.0,
+          "stock": 30,
+          "shortDescription": "Pulseira em prata 925 estilo Cuban Link com acabamento polido espelhado.",
+          "description": "A Silver Dominus 925 representa força e sofisticação em um design clássico Cuban Link. Fabricada em prata 925 e finalizada com polimento de alto brilho, esta peça traduz presença e refinamento em qualquer composição. Seu visual robusto e elegante transforma a pulseira em um verdadeiro símbolo de personalidade, estilo e poder masculino.",
+          "images": [
+            "assets/images/joias/silver-dominus-925-1.jpg",
+            "assets/images/joias/silver-dominus-925-2.jpg",
+            "assets/images/joias/silver-dominus-925-3.jpg"
+          ],
+          "specs": {
+            "material": "Prata 925",
+            "estilo": "Cuban Link",
+            "acabamento": "Polido espelhado",
+            "fecho": "Gaveta com trava de segurança",
+            "design": "Masculino premium",
+            "marca": "Diamond Sect"
+          },
+          "active": true
+        },
+        "argentum_link_925": {
+          "name": "Diamond Sect — Argentum Link 925",
+          "slug": "argentum-link-925",
+          "category": "pulseira",
+          "subcategory": "pulseiras",
+          "price": 280.0,
+          "stock": 30,
+          "shortDescription": "Pulseira masculina em prata 925 estilo grumet, com acabamento polido espelhado.",
+          "description": "A Argentum Link 925 representa a união entre tradição e elegância no universo das joias masculinas. Produzida em prata 925 legítima, sua malha grumet refinada proporciona brilho intenso e acabamento impecável, criando uma peça versátil que se adapta tanto a visuais clássicos quanto a composições modernas. Um acessório essencial para homens que valorizam presença, autenticidade e sofisticação.",
+          "images": [
+            "assets/images/joias/argentum-link-925-1.jpg",
+            "assets/images/joias/argentum-link-925-2.jpg",
+            "assets/images/joias/argentum-link-925-3.jpg"
+          ],
+          "specs": {
+            "material": "Prata 925",
+            "estilo": "Grumet (Cuban Link fino)",
+            "espessura": "3 mm",
+            "comprimento": "19 cm",
+            "acabamento": "Polido espelhado",
+            "fecho": "Lagosta reforçado",
+            "design": "Masculino premium",
+            "marca": "Diamond Sect"
+          },
+          "active": true
+        },
+        "terno_preto_classico": {
+          "name": "Diamond Sect — Terno Preto Clássico",
+          "slug": "terno-preto-classico",
+          "category": "terno",
+          "subcategory": "ternos",
+          "price": 1290.0,
+          "stock": 7,
+          "shortDescription": "Terno preto clássico de alfaiataria premium para ocasiões marcantes.",
+          "description": "Elegância atemporal para ocasiões marcantes. O Terno Preto Clássico Diamond Sect apresenta corte refinado, caimento impecável e acabamento sofisticado, ideal para eventos formais, casamentos e ocasiões especiais.",
+          "images": [
+            "assets/images/ternos/terno-preto-1.jpg",
+            "assets/images/ternos/terno-preto-2.jpg",
+            "assets/images/ternos/terno-preto-3.jpg"
+          ],
+          "specs": {
+            "cor": "Preto",
+            "corte": "Slim Fit",
+            "material": "Alfaiataria premium",
+            "pecas": "Paletó + calça",
+            "estilo": "Social elegante"
+          },
+          "active": true
+        },
+        "terno_cinza_elegante": {
+          "name": "Diamond Sect — Terno Cinza Elegante",
+          "slug": "terno-cinza-elegante",
+          "category": "terno",
+          "subcategory": "ternos",
+          "price": 1190.0,
+          "stock": 7,
+          "shortDescription": "Terno cinza claro com visual moderno e sofisticado.",
+          "description": "O Terno Cinza Elegante traduz modernidade e sofisticação em um design refinado. Sua tonalidade cinza clara proporciona elegância contemporânea e versatilidade para eventos formais e celebrações.",
+          "images": [
+            "assets/images/ternos/terno-cinza-1.jpg",
+            "assets/images/ternos/terno-cinza-2.jpg",
+            "assets/images/ternos/terno-cinza-3.jpg"
+          ],
+          "specs": {
+            "cor": "Cinza claro",
+            "corte": "Slim Fit",
+            "material": "Alfaiataria premium",
+            "pecas": "Paletó + colete + calça",
+            "estilo": "Social premium"
+          },
+          "active": true
+        },
+        "terno_areia_premium": {
+          "name": "Diamond Sect — Terno Areia Premium",
+          "slug": "terno-areia-premium",
+          "category": "terno",
+          "subcategory": "ternos",
+          "price": 1390.0,
+          "stock": 7,
+          "shortDescription": "Terno areia sofisticado com presença leve e acabamento premium.",
+          "description": "O Terno Areia Premium representa elegância contemporânea com um toque de exclusividade. Seu tom areia cria um visual sofisticado e diferenciado, ideal para eventos de alto padrão e composições marcantes.",
+          "images": [
+            "assets/images/ternos/terno-bege-1.jpg",
+            "assets/images/ternos/terno-bege-2.jpg",
+            "assets/images/ternos/terno-bege-3.jpg"
+          ],
+          "specs": {
+            "cor": "Areia",
+            "corte": "Slim Fit",
+            "material": "Alfaiataria premium",
+            "pecas": "Paletó + colete + calça",
+            "estilo": "Social premium"
+          },
+          "active": true
+        },
+        "terno_azul_marinho_classico": {
+          "name": "Diamond Sect — Terno Azul Marinho Clássico",
+          "slug": "terno-azul-marinho-classico",
+          "category": "terno",
+          "subcategory": "ternos",
+          "price": 1390.0,
+          "stock": 7,
+          "shortDescription": "Terno azul marinho com caimento refinado e elegância atemporal.",
+          "description": "O Terno Azul Marinho Clássico combina elegância moderna e estilo refinado. Seu tom profundo transmite confiança e distinção, sendo uma escolha perfeita para eventos sofisticados e ocasiões especiais.",
+          "images": [
+            "assets/images/ternos/terno-azul-marinho-1.jpg",
+            "assets/images/ternos/terno-azul-marinho-2.jpg",
+            "assets/images/ternos/terno-azul-marinho-3.jpg"
+          ],
+          "specs": {
+            "cor": "Azul marinho",
+            "corte": "Slim Fit",
+            "material": "Alfaiataria premium",
+            "pecas": "Paletó + colete + calça",
+            "estilo": "Social premium"
+          },
+          "active": true
+        },
+        "terno_caqui_premium": {
+          "name": "Diamond Sect — Terno Cáqui Premium",
+          "slug": "terno-caqui-premium",
+          "category": "terno",
+          "subcategory": "ternos",
+          "price": 1350.0,
+          "stock": 7,
+          "shortDescription": "Terno cáqui moderno com elegância discreta e presença marcante.",
+          "description": "O Terno Cáqui Premium oferece um equilíbrio perfeito entre estilo moderno e sofisticação. Sua tonalidade cáqui transmite elegância discreta e presença marcante, ideal para homens que querem fugir do óbvio com classe.",
+          "images": [
+            "assets/images/ternos/terno-caqui-1.jpg",
+            "assets/images/ternos/terno-caqui-2.jpg",
+            "assets/images/ternos/terno-caqui-3.jpg"
+          ],
+          "specs": {
+            "cor": "Cáqui",
+            "corte": "Slim Fit",
+            "material": "Alfaiataria premium",
+            "pecas": "Paletó + colete + calça",
+            "estilo": "Social premium"
+          },
+          "active": true
+        },
+        "terno_azul_serenity": {
+          "name": "Diamond Sect — Terno Azul Serenity",
+          "slug": "terno-azul-serenity",
+          "category": "terno",
+          "subcategory": "ternos",
+          "price": 1390.0,
+          "stock": 7,
+          "shortDescription": "Terno azul serenity de presença leve, sofisticada e exclusiva.",
+          "description": "O Terno Azul Serenity une leveza visual e sofisticação em uma peça criada para homens que desejam um visual moderno e marcante. Seu tom claro transmite exclusividade e elegância em ocasiões especiais.",
+          "images": [
+            "assets/images/ternos/terno-serenity-1.jpg",
+            "assets/images/ternos/terno-serenity-2.jpg",
+            "assets/images/ternos/terno-serenity-3.jpg"
+          ],
+          "specs": {
+            "cor": "Azul serenity",
+            "corte": "Slim Fit",
+            "material": "Alfaiataria premium",
+            "pecas": "Paletó + colete + calça",
+            "estilo": "Social premium"
+          },
+          "active": true
+        }
+      }
+    },
+    "site": {
+      "brand": "Diamond Sect",
+      "domain": "diamondsectstore.com",
+      "socialProof": {
+        "customers": 1243,
+        "securePurchase": true,
+        "returnsDays": 30,
+        "deliveryDays": 10
+      }
+    },
+    "siteContent": {
+      "heroes": {
+        "home": "assets/images/ui/hero-home.jpg",
+        "joias": "assets/images/ui/hero-joias.jpg",
+        "ternos": "assets/images/ui/hero-ternos.jpg",
+        "perfumaria": "assets/images/ui/hero-perfumaria.jpg"
+      }
+    }
+  },
+  "payments": {},
+  "orders": {},
+  "users": {}
+}
